@@ -1,0 +1,36 @@
+{
+  "phones": [
+    {
+      "id": 3,
+      "name": "Iphone 12",
+      "desc": "mới mẻ",
+      "price": 20000000,
+      "image": "https://didongviet.vn/pub/media/catalog/product//i/p/iphone-12-pro-xanh-didongviet_1_1_1.jpg",
+      "status": "còn hàng"
+    },
+    {
+      "id": 4,
+      "name": "Iphone 12",
+      "desc": "mới mẻ",
+      "price": 20000000,
+      "image": "https://didongviet.vn/pub/media/catalog/product//i/p/iphone-12-pro-xanh-didongviet_1_1_1.jpg",
+      "status": "còn hàng"
+    },
+    {
+      "id": 5,
+      "name": "Iphone 12",
+      "desc": "mới mẻ",
+      "price": 20000000,
+      "image": "https://www.xtmobile.vn/vnt_upload/news/07_2019/iphone-12-pro-max-xtmobile.jpg",
+      "status": "còn hàng"
+    },
+    {
+      "id": 6,
+      "name": "Iphone 12",
+      "desc": "mới mẻ",
+      "price": 20000000,
+      "image": "https://didongviet.vn/pub/media/catalog/product//i/p/iphone-12-pro-xanh-didongviet_1_1_1.jpg",
+      "status": "còn hàng"
+    }
+  ]
+}
