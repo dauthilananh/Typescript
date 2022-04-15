@@ -8,8 +8,11 @@ export default function Product() {
         ; (async () => {
             const { data } = await getProducts()
             setProducts(data)
+            // console.log(data[0].category.name);
+            
         })()
-    }, [])
+    }, []);
+    
     const ondeleteProduct = async (id: number) => {
         if (window.confirm('Bạn có muốn xoá không')) {
             const { data } = await deleteProduct(id)
@@ -19,16 +22,17 @@ export default function Product() {
     }
     type PRODUCT_TYPE = {
         id: number,
-        name: string,
+        name: string | string,
         price: number,
         desc: string,
         image: "",
+        categoryId: string |number,
         status: 0
     };
 
     return (
         <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-            <div className="text-end row">
+            <div className="text-end row pt-4">
                 <div className="col-6">
                     <h2 className="mr-96">Sản phẩm</h2>
                 </div>
@@ -47,8 +51,9 @@ export default function Product() {
                             <th scope="col">Desc</th>
                             <th scope="col">Price</th>
                             <th scope="col">image</th>
+                            <th scope="col">category</th>
                             <th scope="col">status</th>
-                            <th scope="col">Action</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -70,25 +75,28 @@ export default function Product() {
                                     {product.price}
                                 </td>
                                 <td style={{ verticalAlign: 'middle' }} className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                    <img src="https://www.xtmobile.vn/vnt_upload/news/07_2019/iphone-12-pro-max-xtmobile.jpg" width={100} height={100} alt="" />
+                                    <img src={product.image} width={100} height={100} alt="" />
                                 </td>
                                 <td style={{ verticalAlign: 'middle' }} className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
-                                    {product.status}
+                                    {product.categoryId}
+                                </td>
+                                <td style={{ verticalAlign: 'middle' }} className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
+                                    {product.status ? "còn hàng" : "hết hàng"}
                                 </td>
                                 <td style={{ verticalAlign: 'middle' }} className="text-center py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400">
                                     <Link to={`${product.id}`}>
-                                        <button className="border boder-white px-4 py-1 mr-3">
+                                        <button className="btn btn-outline-primary px-4 py-1 mr-3">
                                             Chi tiết
                                         </button>
                                     </Link>
 
                                     <Link to={`${product.id}/edit`}>
-                                        <button className="border boder-white px-4 py-1 mr-3">
+                                        <button className="btn btn-outline-warning px-4 py-1 mr-3">
                                             sửa
                                         </button>
                                     </Link>
                                     <button
-                                        className="border border-white px-4 py-1"
+                                        className="btn btn-outline-danger px-4 py-1"
                                         onClick={() => {
                                             ondeleteProduct(product.id)
                                         }}

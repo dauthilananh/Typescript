@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { CATEGORY_TYPE } from "./CategoryList";
+// import { CATEGORY_TYPE } from "./CategoryList";
 
 export default function CategoryDetail() {
     const {id} = useParams();

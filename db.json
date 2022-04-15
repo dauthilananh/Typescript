@@ -1,36 +1,43 @@
 {
   "phones": [
     {
-      "id": 3,
-      "name": "Iphone 12",
-      "desc": "mới mẻ",
-      "price": 20000000,
-      "image": "https://didongviet.vn/pub/media/catalog/product//i/p/iphone-12-pro-xanh-didongviet_1_1_1.jpg",
-      "status": "còn hàng"
+      "name": "lan anh",
+      "price": "11",
+      "desc": "mới mẻ123",
+      "categoryId": "2",
+      "image": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
+      "status": true,
+      "id": 10
     },
     {
-      "id": 4,
-      "name": "Iphone 12",
-      "desc": "mới mẻ",
-      "price": 20000000,
-      "image": "https://didongviet.vn/pub/media/catalog/product//i/p/iphone-12-pro-xanh-didongviet_1_1_1.jpg",
-      "status": "còn hàng"
+      "name": "lan anh",
+      "price": "7000",
+      "desc": "wefdgwjisoklfmhjgnb",
+      "categoryId": "2",
+      "image": "https://images.ctfassets.net/hrltx12pl8hq/3j5RylRv1ZdswxcBaMi0y7/b84fa97296bd2350db6ea194c0dce7db/Music_Icon.jpg",
+      "status": false,
+      "id": 11
     },
     {
-      "id": 5,
-      "name": "Iphone 12",
-      "desc": "mới mẻ",
-      "price": 20000000,
-      "image": "https://www.xtmobile.vn/vnt_upload/news/07_2019/iphone-12-pro-max-xtmobile.jpg",
-      "status": "còn hàng"
+      "name": "tòa E",
+      "price": "8000",
+      "desc": "aSDSZFDXYFTUKYFTG",
+      "categoryId": "1",
+      "image": "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg",
+      "status": true,
+      "id": 12
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Samsung",
+      "image": "https://images.ctfassets.net/hrltx12pl8hq/3j5RylRv1ZdswxcBaMi0y7/b84fa97296bd2350db6ea194c0dce7db/Music_Icon.jpg"
     },
     {
-      "id": 6,
-      "name": "Iphone 12",
-      "desc": "mới mẻ",
-      "price": 20000000,
-      "image": "https://didongviet.vn/pub/media/catalog/product//i/p/iphone-12-pro-xanh-didongviet_1_1_1.jpg",
-      "status": "còn hàng"
+      "id": 2,
+      "name": "Iphone",
+      "image": "https://images.unsplash.com/photo-1544526226-d4568090ffb8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aGQlMjBpbWFnZXxlbnwwfHwwfHw%3D&w=1000&q=80"
     }
   ]
 }

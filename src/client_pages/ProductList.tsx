@@ -74,14 +74,12 @@ function ProductList() {
 
                 <div className="album py-5 bg-light">
                     <div className="container">
-
-
                         <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                             {
                                 products.map(product => (
                                     <div className="col">
                                         <div className="card shadow-sm">
-                                            <img src="https://www.xtmobile.vn/vnt_upload/news/07_2019/iphone-12-pro-max-xtmobile.jpg" alt="" />
+                                                <img src={product.image} alt="" style={{height: 400}}/>
                                             <div className="card-body">
                                                 <h3>{product.name}</h3>
                                                 <p className="card-text">{product.desc}</p>

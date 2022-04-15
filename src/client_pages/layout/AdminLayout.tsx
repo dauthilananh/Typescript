@@ -35,19 +35,19 @@ export default function AdminLayout() {
                                     </li>
 
                                     <li className="nav-item">
-                                        <NavLink to={'dashboard'}>
-                                            <a className="nav-link  text-white" href="#">
-                                                <span data-feather="shopping-cart" />
-                                                Danh mục
-                                            </a>
-                                        </NavLink>
-                                    </li>
-
-                                    <li className="nav-item">
                                         <NavLink to={'phones'}>
                                             <a className="nav-link  text-white" href="#">
                                                 <span data-feather="file" />
                                                 Sản phẩm
+                                            </a>
+                                        </NavLink>
+                                    </li>
+                                    
+                                    <li className="nav-item">
+                                        <NavLink to={'cates'}>
+                                            <a className="nav-link  text-white" href="#">
+                                                <span data-feather="shopping-cart" />
+                                                Danh mục
                                             </a>
                                         </NavLink>
                                     </li>

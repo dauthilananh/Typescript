@@ -1,18 +1,23 @@
 import api from "./axios";
 
-export const getCategorys = () => {
-    return api.get('/cates')
+export const getAll = () => {
+    return api.get('/categories')
 };
 
 export const getCategory = (id: string | undefined) => {
-    return api.get(`/cates/${id}`)
+    return api.get(`/categories/${id}`)
+};
+export const createCategory = (data: any) => {
+    return api.post('/categories', data)
 };
 
-export const  createCategory = (data: any) => {
-    return api.post(`/cates, data`)
+export const update = (cate: any) => {
+    const url = `/categories/${cate.id}`
+    return api.patch(url, cate)
 };
 
 export const deleteCategory = (id: number |string) => {
-    return api.delete(`/cates/${id}`)
+    return api.delete(`/categories/${id}`)
 };
+
 

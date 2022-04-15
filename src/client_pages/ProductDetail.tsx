@@ -57,7 +57,7 @@ function ProductDetail(){
             <div className="container">
             <div className="row ">
                 <div className="col-4 py-5">
-                    <img src="https://www.xtmobile.vn/vnt_upload/news/07_2019/iphone-12-pro-max-xtmobile.jpg" alt="" height="300"/>
+                    <img src={product?.image} alt="" height="300"/>
                 </div>
                 <div className="col-8  py-5 px-5">
                     <h3>{product?.name}</h3>

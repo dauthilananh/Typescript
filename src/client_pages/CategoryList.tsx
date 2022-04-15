@@ -1,82 +1,66 @@
 import { type } from "@testing-library/user-event/dist/type";
 import React, { Component, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { getCategorys } from "../client_api/category";
+import { Link, useParams } from "react-router-dom";
+import { getProductByCate } from "../client_api/product";
 
-class CategoryListold extends Component {
-    state = {
-        count: 0
-    };
-
-    componentDidMount() {
-        console.log('didmount', this.state.count);
-    }
-
-    componentDidUpdate() {
-        console.log('didupdate', this.state.count);
-    }
-
-    render() {
-        return (
-            <div onClick={() => this.setState({
-                count: this.state.count +1
-            })}>
-                CategoryList lass
-                <div>{this.state.count}</div>
-            </div>
-        )
-    }
-}
-
-export type CATEGORY_TYPE = {
-    id: number |string,
-    name: string
+type CATEGORY_TYPE = {
+    id: number;
+    name: string;
+    price: string | number;
+    desc: string;
+    image: string;
+    categoryId: string | number;
+    status: Boolean
 };
 
 export default function CategoryList () {
+    const {id} = useParams();
+
     const [categorys, setCategorys] = useState<CATEGORY_TYPE[]>([]);
 
-    const handleGetCategorys = async () => {
-        const response = await getCategorys();
-        setCategorys(response.data);
+    const handleGetCategorys = async (id: number | string | undefined) => {
+        const {data} = await getProductByCate(id);
+        setCategorys(data);
     }
 
     console.log(categorys);
 
     useEffect(() => {
-        handleGetCategorys();
-    }, []);
+        handleGetCategorys(id);
+    }, [id]);
 
     return (
         <div>
-            <table>
-                <thead>
-                    <tr>
-                        <td>ID</td>
-                        <td>Name</td>
-                        <td>Action</td>
-                    </tr>
-                </thead>
+                <div className="album py-5 bg-light">
+                    <div className="container">
+                        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                            {
+                                categorys.map(category => (
+                                    <div className="col">
+                                        <div className="card shadow-sm">
+                                            <img src={category.image} alt="" style={{height: 400}}/>
+                                        {/* <img src={imageBase64} width={200} alt="" /> */}
+                                           <div className="card-body">
+                                                <h3>{category.name}</h3>
+                                                <p className="card-text">{category.desc}</p>
+                                                <span>{category.price}</span>
+                                                <div className="d-flex justify-content-between align-items-center pt-3" >
+                                                    <div className="btn-group">
+                                                        <Link to={`/phones/${category.id}`}>
+                                                            <button type="button" className="btn btn-sm btn-outline-secondary">Detail</button>
+                                                        </Link>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                <tbody>
-                    {
-                        categorys.map(category => (
-                            <tr key={category.id}>
-                                <td>{category.id}</td>
-                                <td>{category.name}</td>
+                                ))
+                            }
+                        </div>
 
-                                <td>
-                                    <Link to={`/cates/${category.id}`}>
-                                        <button>Chi tiết</button>
-                                    </Link>
-                                    <button>Chỉnh sửa</button>
-                                    <button>Xóa</button>
-                                </td>
-                            </tr>
-                        ))
-                    }
-                </tbody>
-            </table>
-        </div>
+                    </div>
+                </div>
+            </div>
     )
 }

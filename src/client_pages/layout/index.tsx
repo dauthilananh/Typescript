@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, Outlet } from 'react-router-dom';
+import { getAll } from "../../client_api/category";
 
 function ClientLayout() {
+    type TYPECATE = {
+        id: number,
+        name: string;
+        image: ""
+    };
+    const [categorys, setCategorys] = useState<TYPECATE[]>([]);
+
+    const getCategorys = async () => {
+        const { data } = await getAll();
+        console.log(data);
+        setCategorys(data);
+    }
+    useEffect(() => {
+        getCategorys();
+    }, []);
+
     return (
         <div>
             <header className="p-3 bg-dark bg-gradient text-white">
@@ -14,9 +31,31 @@ function ClientLayout() {
                         <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                             <li><Link to={'/'} className="nav-link px-2 text-secondary">Home</Link></li>
                             <li><Link to={'/phones'} className="nav-link px-2 text-white">Product</Link></li>
-                            <li><Link to={'/posts'} className="nav-link px-2 text-white">Posts</Link></li>
-                            <li><Link to={'/cates'} className="nav-link px-2 text-white">Category</Link></li>
-                            <li><a href="#" className="nav-link px-2 text-white">Book</a></li>
+                            <li>
+                                <div className="dropdown">
+                                    <button className="btn btn-outline-light dropdown-toggle" 
+                                    type="button" 
+                                    id="dropdownMenuButton1" 
+                                    data-bs-toggle="dropdown" 
+                                    aria-expanded="false" 
+                                    style={{borderColor:"transparent"}}>
+                                        Category
+                                    </button>
+                                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    {
+                                        categorys.map((category) => {
+                                            return <li><Link className="dropdown-item" to={`/cates/${category.id}`}>{category.name}</Link></li>
+                                        })
+                                    }
+                                        {/* <li><Link className="dropdown-item" >Samsung</Link></li>
+                                        <li><a className="dropdown-item" href="#">Iphone</a></li> */}
+                                    </ul>
+                                </div>
+                            </li>
+
+                            {/* <li><Link to={'/posts'} className="nav-link px-2 text-white">Posts</Link></li> */}
+                            {/* <li><Link to={'/cates'} className="nav-link px-2 text-white">Category</Link></li> */}
+                            {/* <li><a href="#" className="nav-link px-2 text-white">Book</a></li> */}
                         </ul>
 
                         <form className="d-flex">

@@ -19,6 +19,9 @@ import AddProduct from "./client_pages/Admin/AddProduct";
 import Product from "./client_pages/Admin/Category/Product";
 import DetailProduct from "./client_pages/Admin/Category/DetailProduct";
 import EditProduct from "./client_pages/Admin/EditProduct";
+import AddCategory from "./client_pages/Admin/AddCategory";
+import EditCategory from "./client_pages/Admin/EditCategory";
+import DetailCategory from "./client_pages/Admin/Category/DetailCategory";
 
 function Appclone() {
     return (
@@ -43,7 +46,7 @@ function Appclone() {
                         <Route path={'edit/:id'} element={<PostForm />} />
                     </Route>
 
-                    <Route path={'cates'}>
+                    <Route path={'cates/:id'}>
                         <Route index element={<CategoryList/>} />
                     </Route>
 
@@ -66,6 +69,15 @@ function Appclone() {
                         <Route path=':id'>
                             <Route index element={<DetailProduct />} />
                             <Route path="edit" element={<EditProduct />} />
+                        </Route>
+                    </Route>
+
+                    <Route path={'cates'}>
+                        <Route index element={<Category />} />
+                        <Route path={'add'} element={<AddCategory />}/>
+                        <Route path=':id'>
+                            <Route index element={<DetailCategory />} />
+                            <Route path="edit" element={<EditCategory />} />
                         </Route>
                     </Route>
 
